@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import CountryCard from './CountryCard';
 
 function App() {
   const countries = useRef([]);
@@ -42,7 +41,10 @@ function App() {
 
 
   const renderedFlags = searchData.map(country => {
-    return <CountryCard key={country.common} name={country.common} img={country.png} />
+    return <div key={country.common} className="countryCard">
+      <img className="imgStyle" src={country.png} alt={`Flag of ${country.common}`} />
+      <h2>{country.common}</h2>
+    </div>
   });
 
   return (
